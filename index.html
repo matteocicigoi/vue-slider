@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container" id="app">
-      <div class="items">
+      <div class="items" @mouseover="intervalF('clear')" @mouseleave="intervalF">
         <div class="prev" @click="prev"></div>
         <div class="next" @click="next"></div>
         <div class="thumbnails">

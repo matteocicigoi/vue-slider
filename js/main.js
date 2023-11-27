@@ -51,9 +51,11 @@ createApp({
             this.currentImg = index;
             this.intervalF();
         },
-        intervalF(){
+        intervalF(type){
             clearInterval(this.interval);
-            this.interval = setInterval(this.next, 3000);
+            if(type !== 'clear'){
+                this.interval = setInterval(this.next, 3000);
+            }
         }
     },
     mounted(){
