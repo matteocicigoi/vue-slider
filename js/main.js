@@ -34,5 +34,18 @@ createApp({
                 },
             ]
         }
+    },
+    methods: {
+        next(){
+            this.currentImg++;
+            if(this.currentImg > this.images.length - 1)this.currentImg = 0;
+        },
+        prev(){
+            this.currentImg--;
+            if(this.currentImg < 0) this.currentImg = this.images.length - 1;
+        },
+        selectImg(index){
+            this.currentImg = index;
+        }
     }
 }).mount('#app');

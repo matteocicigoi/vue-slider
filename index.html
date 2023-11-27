@@ -10,10 +10,10 @@
   <body>
     <div class="container" id="app">
       <div class="items">
-        <div class="prev"></div>
-        <div class="next"></div>
+        <div class="prev" @click="prev"></div>
+        <div class="next" @click="next"></div>
         <div class="thumbnails">
-          <div v-for="(image, index) in images" class="box" :class="currentImg === index ? 'active' : ''">
+          <div v-for="(image, index) in images" class="box" :class="currentImg === index ? 'active' : ''" @click="selectImg(index)">
             <img :src="`img/${image.image}`" :alt="`Immagine ${index}`">
           </div>
         </div>
