@@ -6,6 +6,7 @@ createApp({
     data(){
         return {
             currentImg : 0,
+            interval : '',
             images : [
                 {
                     image : '01.jpg',
@@ -39,13 +40,23 @@ createApp({
         next(){
             this.currentImg++;
             if(this.currentImg > this.images.length - 1)this.currentImg = 0;
+            this.intervalF();
         },
         prev(){
             this.currentImg--;
-            if(this.currentImg < 0) this.currentImg = this.images.length - 1;
+            if(this.currentImg < 0)this.currentImg = this.images.length - 1;
+            this.intervalF();
         },
         selectImg(index){
             this.currentImg = index;
+            this.intervalF();
+        },
+        intervalF(){
+            clearInterval(this.interval);
+            this.interval = setInterval(this.next, 3000);
         }
+    },
+    mounted(){
+        this.intervalF();
     }
 }).mount('#app');
